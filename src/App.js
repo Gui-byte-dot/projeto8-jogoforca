@@ -10,53 +10,45 @@ export default function App(props){
     const [erro, setErro] = React.useState(0)
     // const [image, setImage] = React.useState([]);
     // array3.map((string, i) => string.replace('a','*'));
-    const [novo, setNovo] = React.useState()
     let novapalavra = palavras[0];
     let novapalavra1 = novapalavra.split('');
     let novapalavra2 = Array(novapalavra1.length).fill('_');
-    let novapalavra5 = "_______"
+    let novapalavra5 = "_______";
+    const [novo, setNovo] = React.useState(novapalavra2.map((seta) => <p class="underline">{seta}</p>));
+    let novapalavra4 = {};
+    let obj1 = [];
 
 
-
-function mostrar(index){
+    function mostrar1(arr1,arr2,a){
+        return (arr1.map((chr, idx) => (arr2.map( (x,index) => { if(x === a) return index}).filter(item => item !== undefined)[0] === idx) ? a : chr)).map((chr, idx) => (arr2.map( (x,index) => { if(x === a) return index}).filter(item => item !== undefined)[1] === idx) ? a : chr)}
+    function mostrar(index){
     // let novaImagem = [...image, imagens[index]];
     let novoArray = [...valor, alfabeto[index]];
     setValor(novoArray);
-    console.log(novoArray);
-    console.log(novapalavra1);
-    console.log(novapalavra2);
-    // for(let i = 0; novapalavra2.length; i++){
-    //     if()
-    // }
-    // novapalavra2.map((string, i) => )
-    
-//     const names = ["Matheus", "João", "Pedro"]
-// const index = names.indexOf("João");
-// if (index !== -1) {
-//     names[index] = "Josias";
-// }
-// console.log(names) // ["Matheus", "Josias", "Pedro"]
-    // const idx = novapalavra1.indexOf("a");
-    // if(idx !== -1){
-    //     novapalavra1[idx] = '_';
-    // }
-    // console.log(novapalavra1);
-    // myText = myText.replace(/\./g,'')
-    // let novapalavra3 = (novapalavra.replaceAll('a','_'));
-    // let novapalavra4 = (novapalavra3.split(''));
+
+    // setState((prevVals) => [...prevVals,newVals])
+
+
+    // const handleClick = () => {
+    //     // 👇️ push to end of state array
+    //     setNames(current => [...current, 'Carl'])
+    // updateMyArray( arr => [...arr, `${arr.length}`]);
+
     
     if (novapalavra1.includes(novoArray[novoArray.length -1]) === true){
         setAcerto(acerto + 1);
         if(acerto >= 0){
-            console.log("isssssooooo");
-            setNovo(((novapalavra5.replaceAll('_',novoArray[novoArray.length -1])).split('')));
-                // array3.map((string, i) => string.replace('a','*'));
-
-        }
+            // let obj = mostrar1(novapalavra2,novapalavra1,novoArray[novoArray.length -1]);
+            let novapalavra3 = (novapalavra2.map((chr, idx) => (novapalavra1.map( (x,index) => { if(x === novoArray[novoArray.length -1]) return index}).filter(item => item !== undefined)[0] === idx) ? novoArray[novoArray.length -1] : chr)).map((chr, idx) => (novapalavra1.map( (x,index) => { if(x === novoArray[novoArray.length -1]) return index}).filter(item => item !== undefined)[1] === idx) ? novoArray[novoArray.length -1] : chr);
+            setNovo(novapalavra3);
+            console.log(novapalavra2);
+        } 
+            
+     
     } else {
         console.log("ok");
         setErro(erro + 1);
-
+        
 
     }
    
@@ -77,10 +69,10 @@ function mostrar(index){
                 {alfabeto.map((letra,index) => (<button key={index} onClick={() => mostrar(index)}>{letra}</button>))}
             </div>
             <div class="underlines">
-                {/* {{novo}.map((seta) => <p class="underline">{seta}</p>)} */}
                 {novo}
-
+            {/* {acerto === -1 ? <p>Olá</p> : novapalavra2.map((seta) => <p class="underline">{seta}</p>)}      */}
             </div>
+            {/* <button onClick={() => console.log(mostrar1(novapalavra2,novapalavra1,'a'))}></button> */}
         </>
     )
 }
