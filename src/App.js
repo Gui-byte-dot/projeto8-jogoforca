@@ -14,16 +14,35 @@ export default function App(props){
     const [acerto, setAcerto] = React.useState(0);
     const [erro, setErro] = React.useState(0);
     const [show, setShow] = useState(false);
-    const [show1,setShow1] = useState(false);
+    const [show1,setShow1] = React.useState(1);
+    const [show2, setShow2] = React.useState(false);
+    const [show3, setShow3] = React.useState(false);
+    const [pesquisa, setPesquisa] = useState("");
 
+    function pesquisar(){
+        if(pesquisa === novapalavra){
+            console.log("siiim");
+            setShow2(curr => !curr)
+            setShow(false);
+        } else {
+            setShow2(false);
+            setShow(false)
+            setShow3(current => !current);
+        }
+    }
     console.log(palavras.length);
     const handleClick = event => {
         setShow(current => !current)
     }
-    const handleClick1 = () => {
-        setShow1(curr => !curr);
-
+    const handleClick1=(e)=>{
+        console.log("this is working fine");
+        e.preventDefault();
+        e.target.style.backgroundColor = '#A9A9A9';
+        e.target.style.color = '#808080';
+        
     }
+
+    
     
     
        
@@ -54,6 +73,7 @@ export default function App(props){
     let novoArray = [...valor, alfabeto[index]];
     setValor(novoArray);
     console.log(palavras.indexOf('tabacaria'));
+    
 
     if (novapalavra1.includes(novoArray[novoArray.length -1]) === true){
         setAcerto(acerto + 1);
@@ -156,26 +176,28 @@ export default function App(props){
         <>
             <div class="forca">
                 <img src={imagens[erro]} alt="forca" />
-                <button onClick={handleClick}>Escolher palavra</button>
+                <div class="org">
+                    <button onClick={handleClick}>Escolher palavra</button>
+                    {show && (<div class="underlines" className={novo.includes('_') === false ? 'corcerta' : ''}>
+                    <div className={imagens[erro].includes("forca6.png") ? 'corerrada' : ''}>{imagens[erro].includes("forca6.png") ? <div class="palavraerrada">{novapalavra1.map((u) => (<p>{u}</p>))}</div> : 
+                    <div class="palavraescolhida">{novo.map((t) => (<p>{t}</p>))}</div>}</div>
+                    </div>)}
+                    {show2 &&  (<div class="palavrainteiracerta">{novapalavra1.map((t) => (<p>{t}</p>))}</div>)}
+                    {show3  && (<div class="palavrainteiraerrada">{novapalavra1.map((t) => (<p>{t}</p>))}</div>)}
+                    
+                    
+                </div>
             </div>
             <div class="letras">
-                {alfabeto.map((letra,index) => (<button key={index}  onClick={() => {mostrar(index)}}>{letra}</button>))}
+                {alfabeto.map((letra,index) => (<div onClick={() => {mostrar(index)}}><button key={index} onClick={handleClick1}>{letra}</button></div>))}
             </div>
-            {show && (<div class="underlines" className={novo.includes('_') === false ? 'corcerta' : ''}>
-                <div className={imagens[erro].includes("forca6.png") ? 'corerrada' : ''}>{imagens[erro].includes("forca6.png") ? <div class="palavraerrada">{novapalavra1.map((u) => (<p>{u}</p>))}</div> : <div class="palavraescolhida">{novo.map((t) => (<p>{t}</p>))}</div>}</div>
-            </div>)}
-
+            <div class="palavrasinput">
+                <p>Já sei qual é a palavra</p>
+                <input placeholder="Pesquisar" onChange={e => setPesquisa(e.target.value)} ></input>
+                <button onClick={pesquisar}>Chutar</button>
+            </div>
+            
         </>
     )
 }
-
-// className={(novo.includes('_') === false) ? 'corstring' : ''}
-//RASCUNHOS
-    // const [valor, setValor] = React.useState(false);
-// function mostrar(index){
-    //     console.log(alfabeto[index])
-    // }
-// {valor ? <p>{alfabeto[props.index]}</p> : null}
-// () => console.log(alfabeto[index])
-// () => setValor(alfabeto[index])
-// {acerto === 0 ? novapalavra2.map((string, i) => string.replace('_','a')) : }
+// onChange={e => setPesquisa(e.target.value)}

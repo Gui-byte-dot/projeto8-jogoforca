@@ -2,6 +2,9 @@
     display: flex;
     flex-direction: row;
 }
+.underlines p{
+    font-size: 60px;
+}
 .underline{
     margin-left: 10px;
     margin-top: 20px;
@@ -20,42 +23,102 @@
 }
 .palavraerrada p{
     margin-left: 10px;
-    font-size: 20px;
+    font-size: 60px;
 }
 
 .palavraescolhida{
     display: flex;
     flex-direction: row;
-    margin-left: 10px;
+    margin-left: 20px;
 }
 .palavraescolhida p{
     margin-left: 10px;
-    font-size: 20px;
+    font-size: 60px;
 }
 .forca{
     display: flex;
     flex-direction: row;
 }
-.forca button{
+.forca div button{
     width: 160px;
     height: 40px;
     color: white;
     background-color: green;
+    border-radius: 5px;
+    
+}
+.org{
+    display: flex;
+    flex-direction: column;
     margin-left: 60px;
     margin-top: 40px;
+    text-align: right;
+}
+.org div{
+    margin-top: 300px;
+}
+.org button{
+    margin-left: 60px;
 }
 .letras{
     margin-left: 60px;
     margin-top: 30px;
+    display: flex;
+    flex-direction:row;
 }
-.letras button{
+.letras div button{
     width: 40px;
     height: 40px;
     margin-left: 10px;
-    background-color: grey;
-    color:white;
+    background-color: #87CEFA;
+    color:#6495ED;
     font-size: 20px;
 }
 .escolhido{
     color:blue;
+}
+.palavrasinput{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 30px;
+    align-items: center;
+}
+.palavrasinput input{
+    margin-left: 10px;
+    width: 300px;
+    height: 34px;
+}
+.palavrasinput button{
+    margin-left: 10px;
+    width: 80px;
+    height: 40px;
+}
+.desaparecer{
+    display: none;
+}
+.palavrainteiracerta{
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+}
+.palavrainteiracerta p{
+    margin-left: 10px;
+    font-size: 60px;
+    color:green;
+    margin-top: 300px;
+
+}
+
+.palavrainteiraerrada{
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+}
+.palavrainteiraerrada p{
+    margin-left: 10px;
+    font-size: 60px;
+    color:red;
+    margin-top: 300px;
+
 }
