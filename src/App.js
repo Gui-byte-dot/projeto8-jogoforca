@@ -28,6 +28,7 @@ export default function App(props){
             setShow2(false);
             setShow(false)
             setShow3(current => !current);
+            setErro(false);
         }
     }
     console.log(palavras.length);
@@ -175,6 +176,7 @@ export default function App(props){
       
         <>
             <div class="forca">
+                {show3 && (<img src={imagens[6]} alt="imagem"/>)}
                 <img src={imagens[erro]} alt="forca" />
                 <div class="org">
                     <button onClick={handleClick}>Escolher palavra</button>
