@@ -38,6 +38,7 @@
 .forca{
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 .forca div button{
     width: 160px;
@@ -46,6 +47,9 @@
     background-color: green;
     border-radius: 5px;
     
+}
+.forca img{
+    width: 700px;
 }
 .org{
     display: flex;
@@ -57,14 +61,13 @@
 .org div{
     margin-top: 300px;
 }
-.org button{
-    margin-left: 60px;
-}
+
 .letras{
     margin-left: 60px;
     margin-top: 30px;
     display: flex;
     flex-direction:row;
+    justify-content: center;
 }
 .letras div button{
     width: 40px;
@@ -88,37 +91,19 @@
     margin-left: 10px;
     width: 300px;
     height: 34px;
+    border-radius: 5px;
 }
 .palavrasinput button{
     margin-left: 10px;
     width: 80px;
     height: 40px;
+    border-radius: 5px;
+    background-color: blue;
+    color: white;
+
 }
 .desaparecer{
     display: none;
 }
-.palavrainteiracerta{
-    display: flex;
-    flex-direction: row;
-    margin-left: 20px;
-}
-.palavrainteiracerta p{
-    margin-left: 10px;
-    font-size: 60px;
-    color:green;
-    margin-top: 300px;
 
-}
 
-.palavrainteiraerrada{
-    display: flex;
-    flex-direction: row;
-    margin-left: 20px;
-}
-.palavrainteiraerrada p{
-    margin-left: 10px;
-    font-size: 60px;
-    color:red;
-    margin-top: 300px;
-
-}
